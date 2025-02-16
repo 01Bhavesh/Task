@@ -42,7 +42,7 @@ namespace New_CRUDTask.Controllers
             return Ok("Order placed successfully");
         }
         [Route("update")]
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> UpdateOrder(OrderCreatedDTO updatedOrder)
         {
             var result = await _orderService.UpdateOrder(updatedOrder);
@@ -53,7 +53,7 @@ namespace New_CRUDTask.Controllers
             return Ok("Order placed successfully");
         }
         [Route("delete")]
-        [HttpDelete]
+        [HttpGet]
         public async Task<IActionResult> DeleteOrder(int id)
         {
             var result = await _orderService.DeleteOrder(id);

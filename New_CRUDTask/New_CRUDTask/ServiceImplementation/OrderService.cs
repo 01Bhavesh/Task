@@ -33,6 +33,7 @@ namespace New_CRUDTask.ServiceImplementation
                 productorder.Add(new ProductOrder
                 { 
                     ProductId = orders.ProductId,
+                    CreatedDate = DateTime.Now,
                     Quntity = orders.Quntity
                 });
             }
@@ -75,7 +76,12 @@ namespace New_CRUDTask.ServiceImplementation
         }
 
         public async Task<List<OrderDTO>> GetOrdersByUserId(int userId)
-        { 
+        {
+            var user = await _db.Users.FindAsync(userId);
+            if(user.IsActive != true)
+            {
+                return null;
+            }
             var orders = await _db.Orders
                 .Where(o => o.UserId == userId)
                 .Include(o => o.ProductOrders)
@@ -88,6 +94,7 @@ namespace New_CRUDTask.ServiceImplementation
                 Products = order.ProductOrders.Select(po => new ProductOrderDTO
                 {
                     ProductId = po.ProductId,
+                    ProductName = po.Products.ProductName,
                     Quntity = po.Quntity
                 }).ToList()
             }).ToList();
@@ -118,6 +125,7 @@ namespace New_CRUDTask.ServiceImplementation
                 if (productOrder != null)
                 {
                     productOrder.Quntity = order.Quntity;
+                    productOrder.CreatedDate = DateTime.Now;
                 }
                 else
                 {
@@ -125,7 +133,8 @@ namespace New_CRUDTask.ServiceImplementation
                     {
                         OrderId = previousOrder.OrderId,
                         ProductId = order.ProductId,
-                        Quntity = order.Quntity
+                        Quntity = order.Quntity,
+                        CreatedDate = DateTime.Now
                     });
                 }
             }

@@ -698,6 +698,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "productName": {
+            "type": "string",
+            "nullable": true
+          },
           "quntity": {
             "type": "integer",
             "format": "int32"

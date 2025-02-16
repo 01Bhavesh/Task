@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("New_CRUDTask")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6ba21e04c611c5112a93119a38c4904e6f0995a4")]
 [assembly: System.Reflection.AssemblyProductAttribute("New_CRUDTask")]
 [assembly: System.Reflection.AssemblyTitleAttribute("New_CRUDTask")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using New_CRUDTask.Server;
 
@@ -11,9 +12,11 @@ using New_CRUDTask.Server;
 namespace New_CRUDTask.Migrations
 {
     [DbContext(typeof(DbContextServer))]
-    partial class DbContextServerModelSnapshot : ModelSnapshot
+    [Migration("20250216163037_newupdate")]
+    partial class newupdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
